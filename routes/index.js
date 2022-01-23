@@ -1,7 +1,8 @@
-const passport = require("passport");
 const CreateAuthentication = require("../functions/CreateAuthentication");
 const VerifyAuthentication = require("../functions/VerifyAuthentication");
-const { VerifyGoogle } = require("../functions/passport");
+const googlePassport = require("../functions/google");
+const twitterPassport = require("../functions/twitter");
+const Email = require("../functions/email");
 
 const router = require("express").Router();
 
@@ -17,25 +18,34 @@ router.get("/success", async (req, res) => {
             success: true,
             message: "success",
             user: req.user,
-            cookies: req.cookies
+            cookies: req.cookies,
         });
     }
 });
-router.post("/create", CreateAuthentication);
 router.post("/verify", VerifyAuthentication);
 
 router.get(
     "/google",
-    passport.authenticate("google", {
+    googlePassport.authenticate("google", {
         scope: ["profile"],
     })
 );
 router.get(
     "/google/callback",
-    passport.authenticate("google", {
+    googlePassport.authenticate("google", {
         successRedirect: process.env.CLIENT_URL,
         failureRedirect: "/failed",
     })
 );
+
+router.get("/twitter", twitterPassport.authenticate("twitter"));
+router.get(
+    "/twitter/callback",
+    twitterPassport.authenticate("twitter", {
+        successRedirect: process.env.CLIENT_URL,
+        failureRedirect: "/failed",
+    })
+);
+router.post("/email", CreateAuthentication, Email);
 
 module.exports = router;

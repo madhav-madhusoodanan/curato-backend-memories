@@ -11,8 +11,10 @@ specifiers:
   jsonwebtoken: ^8.5.1
   mongoose: ^6.1.5
   morgan: ^1.10.0
+  nodemailer: ^6.7.2
   passport: ^0.5.2
   passport-google-oauth20: ^2.0.0
+  passport-twitter: ^1.0.4
   uuid: ^8.3.2
   validator: ^13.7.0
 
@@ -27,8 +29,10 @@ dependencies:
   jsonwebtoken: 8.5.1
   mongoose: 6.1.7
   morgan: 1.10.0
+  nodemailer: 6.7.2
   passport: 0.5.2
   passport-google-oauth20: 2.0.0
+  passport-twitter: 1.0.4
   uuid: 8.3.2
   validator: 13.7.0
 
@@ -931,6 +935,11 @@ packages:
     engines: {node: '>= 6.13.0'}
     dev: false
 
+  /nodemailer/6.7.2:
+    resolution: {integrity: sha512-Dz7zVwlef4k5R71fdmxwR8Q39fiboGbu3xgswkzGwczUfjp873rVxt1O46+Fh0j1ORnAC6L9+heI8uUpO6DT7Q==}
+    engines: {node: '>=6.0.0'}
+    dev: false
+
   /nopt/5.0.0:
     resolution: {integrity: sha512-Tbj67rffqceeLpcRXrT7vKAN8CwfPeIBgM7E6iBkmKLV7bEMwpGgYLGv0jACUsECaa/vuxP0IjEont6umdMgtQ==}
     engines: {node: '>=6'}
@@ -987,6 +996,15 @@ packages:
       passport-oauth2: 1.6.1
     dev: false
 
+  /passport-oauth1/1.2.0:
+    resolution: {integrity: sha512-Sv2YWodC6jN12M/OXwmR4BIXeeIHjjbwYTQw4kS6tHK4zYzSEpxBgSJJnknBjICA5cj0ju3FSnG1XmHgIhYnLg==}
+    engines: {node: '>= 0.4.0'}
+    dependencies:
+      oauth: 0.9.15
+      passport-strategy: 1.0.0
+      utils-merge: 1.0.1
+    dev: false
+
   /passport-oauth2/1.6.1:
     resolution: {integrity: sha512-ZbV43Hq9d/SBSYQ22GOiglFsjsD1YY/qdiptA+8ej+9C1dL1TVB+mBE5kDH/D4AJo50+2i8f4bx0vg4/yDDZCQ==}
     engines: {node: '>= 0.4.0'}
@@ -1001,6 +1019,14 @@ packages:
   /passport-strategy/1.0.0:
     resolution: {integrity: sha1-tVOaqPwiWj0a0XlHbd8ja0QPUuQ=}
     engines: {node: '>= 0.4.0'}
+    dev: false
+
+  /passport-twitter/1.0.4:
+    resolution: {integrity: sha1-AaeZ4fdgvy3knyul+6MigvGJMtc=}
+    engines: {node: '>= 0.4.0'}
+    dependencies:
+      passport-oauth1: 1.2.0
+      xtraverse: 0.1.0
     dev: false
 
   /passport/0.5.2:
@@ -1325,6 +1351,19 @@ packages:
 
   /wrappy/1.0.2:
     resolution: {integrity: sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=}
+    dev: false
+
+  /xmldom/0.1.31:
+    resolution: {integrity: sha512-yS2uJflVQs6n+CyjHoaBmVSqIDevTAWrzMmjG1Gc7h1qQ7uVozNhEPJAwZXWyGQ/Gafo3fCwrcaokezLPupVyQ==}
+    engines: {node: '>=0.1'}
+    deprecated: Deprecated due to CVE-2021-21366 resolved in 0.5.0
+    dev: false
+
+  /xtraverse/0.1.0:
+    resolution: {integrity: sha1-t0G60BjveNip0ug63gB7P3lZxzI=}
+    engines: {node: '>= 0.4.0'}
+    dependencies:
+      xmldom: 0.1.31
     dev: false
 
   /yallist/4.0.0:
