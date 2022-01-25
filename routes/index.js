@@ -33,7 +33,7 @@ router.get(
 router.get(
     "/google/callback",
     googlePassport.authenticate("google", {
-        successRedirect: process.env.CLIENT_URL,
+        successRedirect: `${process.env.CLIENT_URL}/CompleteProfile`,
         failureRedirect: "/failed",
     })
 );
@@ -42,7 +42,7 @@ router.get("/twitter", twitterPassport.authenticate("twitter"));
 router.get(
     "/twitter/callback",
     twitterPassport.authenticate("twitter", {
-        successRedirect: process.env.CLIENT_URL,
+        successRedirect: `${process.env.CLIENT_URL}/CompleteProfile`,
         failureRedirect: "/failed",
     })
 );

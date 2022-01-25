@@ -12,17 +12,14 @@ passport.use(
         },
         (accesToken, refreshToken, profile, cb) => {
             // find user into user, timestamp 50:00 around
-            let user, err;
-            console.log(Object.keys(profile));
-            console.log(profile.provider)
-            user = User.create({
+            User.create({
+                email: "",
                 username: profile.id,
                 avatar: profile.photos[0].value,
-                name: profile.displayname.split(" ").join("-"),
-                email: profile.emails[0].value,
                 authKey: uuidv4(),
-            });
-            cb(err, user);
+            })
+                .then((user) => cb(null, user))
+                .catch((e) => console.log(e));
         }
     )
 );

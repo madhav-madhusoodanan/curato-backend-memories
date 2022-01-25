@@ -24,6 +24,7 @@ const CreateAuthentication = async (req, res, next) => {
                 username: uuidv4(),
                 password: hash,
                 email: req.body.email.trim(),
+                authKey: uuidv4()
             });
         } else {
             console.log("user found!");

@@ -9,17 +9,16 @@ passport.use(
             callbackURL: "http://localhost:6969/auth/twitter/callback",
         },
         (token, refreshToken, profile, cb) => {
-            let user, err;
-            user = User.create({
+            User.create({
                 username: profile.id,
                 avatar: profile.photos[0].value,
                 name: profile.displayname,
+                email: "",
                 // email: profile.emails[0].value,
                 authKey: uuidv4(),
-            });
-            console.log(Object.keys(profile));
-            console.log(user.avatar);
-            cb(err, user);
+            })
+                .then((user) => cb(null, user))
+                .catch((e) => console.log(e));
         }
     )
 );
