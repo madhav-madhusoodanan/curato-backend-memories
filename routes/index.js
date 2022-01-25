@@ -38,7 +38,7 @@ router.get(
     async (req, res) => {
         console.log(`google authkey is ${req.user.authKey}`);
         res.redirect(
-            `${process.env.CLIENT_URL}/CompleteProfile&auth=${req.user.authKey}`
+            `${process.env.CLIENT_URL}/CompleteProfile?auth=${req.user.authKey}`
         );
     }
 );
@@ -52,7 +52,7 @@ router.get(
     async (req, res) => {
         console.log(`twitter authkey is ${req.user.authKey}`);
         res.redirect(
-            `${process.env.CLIENT_URL}/CompleteProfile&auth=${req.user.authKey}`
+            `${process.env.CLIENT_URL}/CompleteProfile?auth=${req.user.authKey}`
         );
     }
 );
