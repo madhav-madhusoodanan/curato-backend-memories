@@ -33,18 +33,22 @@ router.get(
 router.get(
     "/google/callback",
     googlePassport.authenticate("google", {
-        successRedirect: `${process.env.CLIENT_URL}/CompleteProfile`,
         failureRedirect: "/failed",
-    })
+    }), 
+    async(req, res) => {
+        res.redirect(`${process.env.CLIENT_URL}/CompleteProfile/${req.user.authKey}`)
+    }
 );
 
 router.get("/twitter", twitterPassport.authenticate("twitter"));
 router.get(
     "/twitter/callback",
     twitterPassport.authenticate("twitter", {
-        successRedirect: `${process.env.CLIENT_URL}/CompleteProfile`,
         failureRedirect: "/failed",
-    })
+    }), 
+    async(req, res) => {
+        res.redirect(`${process.env.CLIENT_URL}/CompleteProfile/${req.user.authKey}`)
+    }
 );
 router.post("/email", CreateAuthentication, Email);
 
