@@ -4,7 +4,7 @@ const { v4: uuidv4 } = require("uuid");
 
 const CreateAuthentication = async (req, res, next) => {
     try {
-        if(!req.body.email || req.bost.email.trim().length == 0) throw new Error("No email body!")
+        if(!req.body.email || req.body.email.trim().length == 0) throw new Error("No email body!")
         let OTP = Math.round(Math.random() * 100000);
         if (OTP < 100000) OTP += 100000;
 
