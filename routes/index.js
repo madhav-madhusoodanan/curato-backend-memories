@@ -39,6 +39,7 @@ router.get(
         console.log(`google authkey is ${req.user.authKey}`);
         res.redirect(
             `${process.env.CLIENT_URL}/CompleteProfile?auth=${req.user.authKey}`
+            // https://frontend-nr1o5nfqo-curato.vercel.app/CompleteProfile?auth=817d3261-e901-49ba-b1f2-8d442e8ccbd9dd
         );
     }
 );
