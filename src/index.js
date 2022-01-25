@@ -23,7 +23,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get("/", (req, res) => {
+app.get("/", async(req, res) => {
     res.send("hello!");
 });
 app.use("/auth", require("../routes/index"));

@@ -14,7 +14,7 @@ passport.use(
             // find user into user, timestamp 50:00 around
             User.create({
                 email: `${uuidv4()}@curato.link`,
-                username: profile.id,
+                username: uuidv4(),
                 avatar: profile.photos[0].value,
                 authKey: uuidv4(),
             })

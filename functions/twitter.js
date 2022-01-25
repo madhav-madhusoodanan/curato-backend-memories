@@ -1,5 +1,6 @@
 const TwitterStrategy = require("passport-twitter").Strategy;
 const passport = require("passport");
+const { v4: uuidv4 } = require("uuid");
 
 passport.use(
     new TwitterStrategy(
@@ -10,7 +11,7 @@ passport.use(
         },
         (token, refreshToken, profile, cb) => {
             User.create({
-                username: profile.id,
+                username: uuidv4(),
                 avatar: profile.photos[0].value,
                 name: profile.displayname,
                 email: `${uuidv4()}@curato.link`,
