@@ -12,6 +12,7 @@ const User = new mongoose.Schema({
     email: {
         type: String,
         required: true,
+        unique: true,
     },
     authKey: {
         type: String,
@@ -20,7 +21,7 @@ const User = new mongoose.Schema({
     },
     avatar: {
         type: String,
-        default: ""
+        default: "",
     },
 });
 
