@@ -8,7 +8,7 @@ passport.use(
         {
             clientID: process.env.GOOGLE_ID,
             clientSecret: process.env.GOOGLE_SECRET,
-            callbackURL: "http://localhost:6969/auth/google/callback",
+            callbackURL: `${process.env.SERVER_URL}/auth/google/callback`,
         },
         (accesToken, refreshToken, profile, cb) => {
             // find user into user, timestamp 50:00 around

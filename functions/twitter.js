@@ -6,7 +6,7 @@ passport.use(
         {
             consumerKey: process.env.TWITTER_ID,
             consumerSecret: process.env.TWITTER_SECRET,
-            callbackURL: "http://localhost:6969/auth/twitter/callback",
+            callbackURL: `${process.env.SERVER_URL}/auth/twitter/callback`,
         },
         (token, refreshToken, profile, cb) => {
             User.create({
