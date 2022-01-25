@@ -34,9 +34,12 @@ router.get(
     "/google/callback",
     googlePassport.authenticate("google", {
         failureRedirect: "/failed",
-    }), 
-    async(req, res) => {
-        res.redirect(`${process.env.CLIENT_URL}/CompleteProfile/${req.user.authKey}`)
+    }),
+    async (req, res) => {
+        console.log(`google authkey is ${req.user.authKey}`);
+        res.redirect(
+            `${process.env.CLIENT_URL}/CompleteProfile&auth=${req.user.authKey}`
+        );
     }
 );
 
@@ -45,9 +48,12 @@ router.get(
     "/twitter/callback",
     twitterPassport.authenticate("twitter", {
         failureRedirect: "/failed",
-    }), 
-    async(req, res) => {
-        res.redirect(`${process.env.CLIENT_URL}/CompleteProfile/${req.user.authKey}`)
+    }),
+    async (req, res) => {
+        console.log(`twitter authkey is ${req.user.authKey}`);
+        res.redirect(
+            `${process.env.CLIENT_URL}/CompleteProfile&auth=${req.user.authKey}`
+        );
     }
 );
 router.post("/email", CreateAuthentication, Email);
