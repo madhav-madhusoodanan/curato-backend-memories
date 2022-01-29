@@ -1,6 +1,8 @@
 const TwitterStrategy = require("passport-twitter").Strategy;
 const passport = require("passport");
 const { v4: uuidv4 } = require("uuid");
+const User = require("../models/user");
+
 
 passport.use(
     new TwitterStrategy(
